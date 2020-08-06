@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <script type="text/javascript">
+      let hash = window.location.hash;
+      window.location.hash = "";       
+      if(hash.startsWith("#")) {
+        hash = hash.slice(1);
+      }
+      const loginData = {};
+      
+      console.log("Hash: " + hash);
+      const pairs = hash.split("&");
+      for(const pair of pairs) {
+        const splited = pair.split("=");
+        loginData[splited[0]] = splited[1];
+      }
+      sessionStorage.setItem("loginData", loginData);
+      location.replace("/twitch-chat-analyzer");
+    </script>
+  </head>
+</html>
