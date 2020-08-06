@@ -14,7 +14,7 @@
         const splited = pair.split("=");
         loginData[splited[0]] = splited[1];
       }
-      sessionStorage.setItem("loginData", loginData);
+      sessionStorage.setItem("loginData", JSON.stringify(loginData));
       location.replace("/twitch-chat-analyzer");
     </script>
   </head>
