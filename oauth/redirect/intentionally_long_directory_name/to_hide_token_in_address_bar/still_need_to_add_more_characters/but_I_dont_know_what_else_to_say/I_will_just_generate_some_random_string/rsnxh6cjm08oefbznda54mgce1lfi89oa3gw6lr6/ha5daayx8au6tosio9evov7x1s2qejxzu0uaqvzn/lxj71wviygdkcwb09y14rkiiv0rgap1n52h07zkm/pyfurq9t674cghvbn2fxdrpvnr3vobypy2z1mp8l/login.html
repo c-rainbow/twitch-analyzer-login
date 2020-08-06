@@ -13,8 +13,11 @@
       for(const pair of pairs) {
         const splited = pair.split("=");
         loginData[splited[0]] = splited[1];
+        if(splited[0] === "access_token") {
+          sessionStorage.setItem("twitch_chat_analyzer_access_token", splited[1]);
+        }
       }
-      sessionStorage.setItem("loginData", JSON.stringify(loginData));
+      sessionStorage.setItem("twitch_chat_analyzer_login_json", JSON.stringify(loginData));
       location.replace("/twitch-chat-analyzer");
     </script>
   </head>
